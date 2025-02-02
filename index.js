@@ -2,7 +2,7 @@ let clickButton = document.getElementById("clickButton");
 let moneyLabelHTML = document.getElementById("moneyLabelHTML");
 let buttonContainer = document.getElementById("buttonHolder")
 let moneyPerClick = 1;
-let money = 0;
+let money = 100;
 
 clickButton.onclick = function() {
     money += moneyPerClick;
@@ -17,10 +17,23 @@ class ClickGainer{
         this.name = name;
         this.cost = cost;
         this.timer = 0;
+        this.bought = 0;
+    }
+
+    TryBuy(){
+        if(money < this.cost)
+            return;
+        money -= this.cost;
+        this.bought++;
+    }
+
+    AmountPerInterval(){
+        return this.bought = this.amountPerInterval;
     }
 
     Update(dt){
         this.timer += dt;
+
         if (this.timer >= this.interval) {
             this.timer = 0;
             this.GainMoney();
@@ -29,7 +42,7 @@ class ClickGainer{
 
     GainMoney() {
         // Assuming there's a global 'money' variable
-        money += this.amountPerInterval;
+        money += AmountPerInterval();
         document.getElementById("moneyLabelHTML").textContent = `$${money}`;
     }
 
@@ -44,7 +57,8 @@ class ClickGainer{
 
         let button = document.createElement("button");
         button.textContent = `${this.name} ($${this.cost})`;
-        button.onclick = () => this.GainMoney();
+        button.id = "clickButton";
+        button.onclick = () => this.TryBuy();
         
         let label = document.createElement("span");
         label.textContent = `+$${this.amountPerInterval} per ${this.interval / 1000}s`;
