@@ -1,3 +1,6 @@
+//Questions/To-Do's:
+//Can you add something that updates the money text content after buying something?
+
 let buttonContainer = document.getElementById("buttonHolder")
 let clickButton = document.getElementById("clickButton");
 let moneyLabelHTML = document.getElementById("moneyLabelHTML");
