@@ -1,6 +1,6 @@
+let buttonContainer = document.getElementById("buttonHolder")
 let clickButton = document.getElementById("clickButton");
 let moneyLabelHTML = document.getElementById("moneyLabelHTML");
-let buttonContainer = document.getElementById("buttonHolder")
 let moneyPerClick = 1;
 let money = 100;
 
@@ -18,11 +18,13 @@ class ClickGainer{
         this.cost = cost;
         this.timer = 0;
         this.bought = 0;
+        this.CreateUI();
     }
 
     TryBuy(){
         if(money < this.cost)
             return;
+
         money -= this.cost;
         this.bought++;
     }
@@ -41,7 +43,6 @@ class ClickGainer{
     }
 
     GainMoney() {
-        // Assuming there's a global 'money' variable
         money += AmountPerInterval();
         document.getElementById("moneyLabelHTML").textContent = `$${money}`;
     }
@@ -71,7 +72,10 @@ class ClickGainer{
 let clickGainerTypes = {  }
 
 let gainer = new ClickGainer(5, 1000, 10, "Grandma", (255, 255, 255));
-gainer.CreateUI();
+let gainer1 = new ClickGainer(5, 1000, 10, "Grandpa", (255, 255, 255));
+let gainer2= new ClickGainer(500, 1000, 100, "Dad", (255, 255, 255));
+let gainer3 = new ClickGainer(5, 1000, 10, "Mom", (255, 255, 255));
+let gainer4 = new ClickGainer(5, 1000, 10, "Ya mum", (255, 255, 255));
 
 // Simulate Update being called every frame (assuming 60 FPS)
 setInterval(() => gainer.Update(1000 / 60), 1000 / 60);
