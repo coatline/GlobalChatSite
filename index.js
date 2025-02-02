@@ -2,7 +2,7 @@ let buttonContainer = document.getElementById("buttonHolder")
 let clickButton = document.getElementById("clickButton");
 let moneyLabelHTML = document.getElementById("moneyLabelHTML");
 let moneyPerClick = 1;
-let money = 100;
+let money = 0;
 
 clickButton.onclick = function() {
     money += moneyPerClick;
