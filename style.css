@@ -1,0 +1,17 @@
+body {
+    background-color: black;
+}
+.text {
+    text-align: center;
+    color: lime;
+}
+.buttonHolder {
+    color: lime;
+}
+#clickButton {
+    border-color: white;
+    border-radius: 5px;
+    border-width: 2px;
+    background-color: black;
+    color: lime;
+}
