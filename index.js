@@ -43,14 +43,14 @@ class ClickGainer{
         buttonContainer.appendChild(wrapper)
 
         let button = document.createElement("button");
-
         button.textContent = `${this.name} ($${this.cost})`;
         button.onclick = () => this.GainMoney();
         
-        wrapper.appendChild(button);
-
         let label = document.createElement("span");
-        label.textContent = '+$${this.amountPerInterval} per ${this.interval / 1000}s';
+        label.textContent = `+$${this.amountPerInterval} per ${this.interval / 1000}s`;
+        
+        wrapper.appendChild(button);
+        wrapper.appendChild(label)
     }
 }
 
