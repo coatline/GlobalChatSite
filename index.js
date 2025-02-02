@@ -1,5 +1,5 @@
-let clickButton = getElementById("clickButton");
-let moneyLabelHTML = getElementById("moneyLabelHTML");
+let clickButton = document.getElementById("clickButton");
+let moneyLabelHTML = document.getElementById("moneyLabelHTML");
 let money = 0;
 let moneyPerClick = 1;
 
