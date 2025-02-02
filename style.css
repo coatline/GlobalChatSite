@@ -10,15 +10,20 @@ body {
 }
 #clickButton {
     border-color: white;
-    border-radius: 5px;
-    border-width: 2px;
+    border-radius: 2px;
+    border-width: 1.5px;
     background-color: black;
+    color: lime;
+    transition: transform 0.1s ease-in-out;
+    width: 130px;
+}
+#label {
     color: lime;
 }
-.buttons{
-    border-color: white;
-    border-radius: 5px;
-    border-width: 2px;
-    background-color: black;
-    color: lime;
+button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+* {
+    user-select: none;
 }

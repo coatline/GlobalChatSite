@@ -63,7 +63,8 @@ class ClickGainer{
         
         let label = document.createElement("span");
         label.textContent = `+$${this.amountPerInterval} per ${this.interval / 1000}s`;
-        
+        label.id="label";
+
         wrapper.appendChild(button);
         wrapper.appendChild(label)
     }
