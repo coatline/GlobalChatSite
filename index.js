@@ -1,5 +1,6 @@
 //Questions/To-Do's:
 //Can you add something that updates the money text content after buying something?
+//Add ripple effect when clicking the buttons (Ex. https://www.youtube.com/watch?v=Azp-IONVzfM)
 
 let buttonContainer = document.getElementById("buttonHolder")
 let clickButton = document.getElementById("clickButton");
