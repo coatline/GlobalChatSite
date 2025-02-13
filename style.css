@@ -1,24 +1,33 @@
 body {
-    background-color: black;
+    background-color: darkslategray;
+    font-family: helvetica;
 }
-.text {
+h1{
     text-align: center;
     color: lime;
 }
-.buttonHolder {
+button{
+    margin-bottom: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     color: lime;
-}
-#clickButton {
     border-color: white;
-    border-radius: 2px;
+    border-radius: 3px;
     border-width: 1.5px;
-    background-color: black;
-    color: lime;
-    transition: transform 0.1s ease-in-out;
     width: 130px;
+    max-width: 100px;
+    background-color: black;
+    transition: transform 0.1s ease-in-out;
+}
+label{
+    color: lime;
 }
 #label {
     color: lime;
+}
+#clickDIV{
+    display: flex;
+    gap: 10px;
 }
 button:hover {
     cursor: pointer;
