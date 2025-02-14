@@ -14,23 +14,25 @@ button{
     border-color: white;
     border-radius: 3px;
     border-width: 1.5px;
-    width: 130px;
-    max-width: 100px;
+    width: 100px;
+    height: 40px;
     background-color: black;
     transition: transform 0.1s ease-in-out;
+    cursor: pointer;
 }
 label{
     color: lime;
+    margin-top: 10px;
 }
 #label {
     color: lime;
+    margin-bottom: 10px;
 }
-#clickDIV{
+#buttonWrapper{
     display: flex;
     gap: 10px;
 }
 button:hover {
-    cursor: pointer;
     transform: scale(1.1);
 }
 * {

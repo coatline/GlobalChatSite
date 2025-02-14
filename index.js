@@ -6,16 +6,26 @@ let buttonContainer = document.getElementById("buttonHolder");
 let clickButton = document.getElementById("clickButton");
 let moneyLabelHTML = document.getElementById("moneyLabelHTML");
 let moneyPerClick = 1;
-let money = 0;
+let Money = {
+    _value: 0,
+
+    get _value(){
+        return this._value;
+    },
+
+    set _value(newVal){
+        this._value = newVal;
+        moneyLabelHTML.textContent = `$${this._value}`;
+    }
+};
 
 clickButton.onclick = function() {
-    money += moneyPerClick;
-    moneyLabelHTML.textContent = `$${money}`;
+    Money += moneyPerClick;
 }
 
 class ClickGainer{
     constructor(amountPerInterval, interval, cost, name, bgColor){
-        this.amountPerInterval = amountPerInterval;
+        this.producedPerInterval = amountPerInterval;
         this.interval = interval;
         this.bgColor = bgColor;
         this.name = name;
@@ -26,15 +36,15 @@ class ClickGainer{
     }
 
     TryBuy(){
-        if(money < this.cost)
+        if(Money < this.cost)
             return;
 
-        money -= this.cost;
+        Money -= this.cost;
         this.bought++;
     }
 
-    AmountPerInterval(){
-        return this.bought = this.amountPerInterval;
+    ProducedPerInterval(){
+        return this.bought * this.producedPerInterval;
     }
 
     Update(dt){
@@ -47,30 +57,28 @@ class ClickGainer{
     }
 
     GainMoney() {
-        money += AmountPerInterval();
-        document.getElementById("moneyLabelHTML").textContent = `$${money}`;
+        Money += this.ProducedPerInterval();
+        document.getElementById("moneyLabelHTML").textContent = `$${Money}`;
     }
 
     CreateUI(){
         // Add the holder for this button.
         let wrapper = document.createElement("div");
         
-        wrapper.style.display = "flex";
-        wrapper.style.gap = "10px";
-        wrapper.style.alignItems = "center";
+        wrapper.id= `buttonWrapper`;
         
         // Put the holder for this button in the button container.
         buttonContainer.appendChild(wrapper);
 
         // Create the button
         let button = document.createElement("button");
-        button.textContent = `${this.name} ($${this.cost})`;
+        button.textContent = `${this.name} (${this.bought})`;
         button.id = "clickButton";
         button.onclick = () => this.TryBuy();
         
         // Create the label next to the button.
         let label = document.createElement("span");
-        label.textContent = `+$${this.amountPerInterval} per ${this.interval / 1000}s`;
+        label.innerHTML = `+$${this.producedPerInterval} per ${this.interval / 1000}s <br> (Cost: ${this.cost})`;
         label.id="label";
 
         wrapper.appendChild(button);
@@ -90,3 +98,24 @@ let gainer4 = new ClickGainer(5, 1000, 10, gainerNames[4], (255, 255, 255));
 
 // Simulate Update being called every frame (assuming 60 FPS)
 setInterval(() => gainer.Update(1000 / 60), 1000 / 60);
+
+//Fullscreen function
+let fullscreen = false;
+function fullScreen(){
+    if(fullscreen == false){
+        document.documentElement.requestFullscreen();
+        fullscreen = true;
+    }else if(fullscreen == true){
+        document.exitFullscreen();
+        fullscreen = false;
+    }
+}
+
+//Change HTML Pages
+function goTo(page = String){
+    if(page == `Skill Tree`){
+        window.location.href = "SkillTree/skillTree.html";
+    }else if(page == `Settings`){
+        window.location.href = "Settings/settings.html";
+    }
+}
