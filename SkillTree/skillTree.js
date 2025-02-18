@@ -18,8 +18,9 @@ document.getElementById("skill2").style.display = "none";
 
 //Heading
 move("homePageButton", 25, 25);
-move("h1", (1280/2) - (130.688/2), 0)
-move("skillPointDisplay", (1280/2) - (63.740/2), 65)
+move("settingsButton", 150, 25);
+move("h1", (1280/2) - (130.688/2), 0);
+move("skillPointDisplay", (1280/2) - (63.740/2), 65);
 
 
 
@@ -60,8 +61,8 @@ function move(ID, x, y){
 //Change Page Function
 function goTo(page = String){
     if(page == `Home Page`){
-        window.location.href = "/index.html";
+        window.location.href = "/WebClickerGame/index.html";
     }else if(page == `Settings`){
-        window.location.href = "/Setting/settings.html";
+        window.location.href = " /WebClickerGame/Settings/settings.html";
     }
 }
