@@ -9,20 +9,36 @@ const cHeight = 578
 //Variables
 let skillPointDisplay = document.getElementById("skillPointDisplay");
 
-//Skill One Image (Current one is just a placeholder)
+//Skill Images (Current one is just a placeholder)
 move("skill1", window.screen.width/2 - 50, 100);
+move("skill2", window.screen.width/2 - 50, 200);
+
+//Hide Hidden Skills
+document.getElementById("skill2").style.display = "none";
 
 //Heading
 move("homePageButton", 25, 25);
 move("h1", (1280/2) - (130.688/2), 0)
 move("skillPointDisplay", (1280/2) - (63.740/2), 65)
 
-//Connecting Line One
-draw(cWidth/2, 100, cWidth/2, 200, 3, "black");
-
 
 
 //Functions
+//Buy Function
+function buy(number){
+    switch(number){
+        case 1:
+            //Connecting Line One
+            draw(cWidth/2, 100, cWidth/2, 220, 3, "black");
+            document.getElementById("skill2").style.display = "block";
+            break;
+        case 2:
+            draw(cWidth/2, 220, cWidth/2, 300, 3, "black");
+            draw(cWidth/2, 220, cWidth/2 + 100, 220, 3, "black");
+            draw(cWidth/2, 220, cWidth/2 - 100, 220, 3, "black");
+            break;
+    }
+}
 //Draw Function
 function draw(x1, y1, x2, y2, width, color){
     const ctx = canvas.getContext('2d');

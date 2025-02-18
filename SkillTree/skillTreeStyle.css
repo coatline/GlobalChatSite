@@ -5,6 +5,10 @@ body{
     width: 100px;
     cursor: pointer;
 }
+#skill2{
+    width: 100px;
+    cursor: pointer;
+}
 #skillPointDisplay{
     margin-top: auto;
     text-align: center;
