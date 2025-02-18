@@ -55,8 +55,6 @@ class ClickGainer{
     }
 
     GainMoney() {
-        console.log(this.bought);
-        console.log(this.producedPerInterval);
         AddMoney(this.ProducedPerInterval());
     }
 
