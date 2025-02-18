@@ -6,21 +6,16 @@ let buttonContainer = document.getElementById("buttonHolder");
 let clickButton = document.getElementById("clickButton");
 let moneyLabelHTML = document.getElementById("moneyLabelHTML");
 let moneyPerClick = 1;
-let Money = {
-    _value: 0,
+let money = 0;
 
-    get _value(){
-        return this._value;
-    },
 
-    set _value(newVal){
-        this._value = newVal;
-        moneyLabelHTML.textContent = `$${this._value}`;
-    }
-};
+function AddMoney(delta){
+    money += delta;
+    document.getElementById("moneyLabelHTML").textContent = `$${money}`;
+}
 
 clickButton.onclick = function() {
-    Money += moneyPerClick;
+    AddMoney(moneyPerClick);
 }
 
 class ClickGainer{
@@ -32,15 +27,18 @@ class ClickGainer{
         this.cost = cost;
         this.timer = 0;
         this.bought = 0;
+        this.button = null;
         this.CreateUI();
     }
 
     TryBuy(){
-        if(Money < this.cost)
+        if(money < this.cost)
             return;
 
-        Money -= this.cost;
+        AddMoney(-this.cost);
         this.bought++;
+
+        this.button.textContent = `${this.name} (${this.bought})`;
     }
 
     ProducedPerInterval(){
@@ -57,8 +55,9 @@ class ClickGainer{
     }
 
     GainMoney() {
-        Money += this.ProducedPerInterval();
-        document.getElementById("moneyLabelHTML").textContent = `$${Money}`;
+        console.log(this.bought);
+        console.log(this.producedPerInterval);
+        AddMoney(this.ProducedPerInterval());
     }
 
     CreateUI(){
@@ -71,47 +70,44 @@ class ClickGainer{
         buttonContainer.appendChild(wrapper);
 
         // Create the button
-        let button = document.createElement("button");
-        button.textContent = `${this.name} (${this.bought})`;
-        button.id = "clickButton";
-        button.onclick = () => this.TryBuy();
+        this.button = document.createElement("button");
+        this.button.textContent = `${this.name} (${this.bought})`;
+        this.button.id = "clickButton";
+        this.button.onclick = () => this.TryBuy();
         
         // Create the label next to the button.
         let label = document.createElement("span");
         label.innerHTML = `+$${this.producedPerInterval} per ${this.interval / 1000}s <br> (Cost: ${this.cost})`;
         label.id="label";
 
-        wrapper.appendChild(button);
+        wrapper.appendChild(this.button);
         wrapper.appendChild(label);
     }
 }
 
 let clickGainerTypes = {  }
 
-let gainerNames = [`Gain 1`, `Gain 2`, `Gain 3`, `Gain 4`, `Gain 5`]
-
-let gainer = new ClickGainer(5, 1000, 10, gainerNames[0], (255, 255, 255));
-let gainer1 = new ClickGainer(5, 1000, 10, gainerNames[1], (255, 255, 255));
-let gainer2= new ClickGainer(500, 1000, 100, gainerNames[2], (255, 255, 255));
-let gainer3 = new ClickGainer(5, 1000, 10, gainerNames[3], (255, 255, 255));
-let gainer4 = new ClickGainer(5, 1000, 10, gainerNames[4], (255, 255, 255));
+let gainers = [
+    gainer = new ClickGainer(5, 1000, 10, "Gainer 1", (255, 255, 255)),
+    gainer1 = new ClickGainer(5, 1000, 10, "IDK", (255, 255, 255)),
+    gainer2 = new ClickGainer(500, 1000, 100, "Grandma", (255, 255, 255)),
+    gainer3 = new ClickGainer(5, 1000, 10, "Your mother", (255, 255, 255)),
+    gainer4 = new ClickGainer(5, 1000, 10, "Friendship", (255, 255, 255))
+]
 
 // Simulate Update being called every frame (assuming 60 FPS)
-setInterval(() => gainer.Update(1000 / 60), 1000 / 60);
+gainers.forEach(gainer => {
+    setInterval(() => gainer.Update(1000 / 60), 1000 / 60);
+});
 
-//Fullscreen function
-let fullscreen = false;
 function fullScreen(){
-    if(fullscreen == false){
+    if(document.documentElement.fullScreen == false)
         document.documentElement.requestFullscreen();
-        fullscreen = true;
-    }else if(fullscreen == true){
+    else
         document.exitFullscreen();
-        fullscreen = false;
-    }
 }
 
-//Change HTML Pages
+// Change HTML Pages
 function goTo(page = String){
     if(page == `Skill Tree`){
         window.location.href = "SkillTree/skillTree.html";
