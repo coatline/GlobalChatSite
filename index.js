@@ -9,6 +9,37 @@ let moneyPerClick = 1;
 let money = 0;
 
 
+//Can you input this into the code so that the money
+//variable can't be changed by people in the command
+//console when they inspect the page?
+
+//This is nested function to make the variables private
+function money(){
+    
+    let money = 0;
+
+    function increaseMoney(amount){
+        money += amount;
+        document.getElementById("moneyLabelHTML").textContent = `$${money}`;
+    }
+
+    function decreaseMoney(amount){
+        money -= amount;
+        document.getElementById("moneyLabelHTML").textContent = `$${money}`;
+    }
+
+    function resetMoney(){
+        money = 0;
+    }
+
+    function returnMoney(){
+        return money;
+    }
+
+    return {increaseMoney, decreaseMoney, resetMoney, returnMoney};
+}
+
+
 function AddMoney(delta){
     money += delta;
     document.getElementById("moneyLabelHTML").textContent = `$${money}`;
@@ -98,6 +129,7 @@ gainers.forEach(gainer => {
     setInterval(() => gainer.Update(1000 / 60), 1000 / 60);
 });
 
+// Fullscreen
 function fullScreen(){
     if(document.documentElement.fullScreen == false)
         document.documentElement.requestFullscreen();
