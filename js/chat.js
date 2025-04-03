@@ -5,10 +5,14 @@ const titleContainer = document.getElementsByClassName('title-container');
 const iframeMessages = document.getElementById('iframeMessages');
 
 document.addEventListener('keypress', event => {
+    const messageInput = document.getElementById('messageInput');
     if (event.key === 'Enter') {
-        const messageInput = document.getElementById('messageInput');
         if (document.activeElement === messageInput) {
+            // If the textbox is already selected, send the message
             sendMessage();
+        } else {
+            // If the textbox is not selected, focus on it
+            messageInput.focus();
         }
     }
 });

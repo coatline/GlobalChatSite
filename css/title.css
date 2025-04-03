@@ -11,6 +11,7 @@
 .local-title-container {
     font-family: 'Cambria', 'Times New Roman', 'Arial';
     text-align: center;
+    font-weight: bold;
     color: white;
     padding: 15px 10px;
     font-size: large;
