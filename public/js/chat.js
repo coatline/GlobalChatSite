@@ -58,7 +58,7 @@ function createMessageElement(messageText) {
 
     const newImg = document.createElement('img');
     newImg.classList.add('profileImg');
-    newImg.src = 'images/chatDisplayRef.jpg';
+    newImg.src = 'public/images/chatDisplayRef.jpg';
     newImg.draggable = false;
     newImg.alt = 'profile';
     newDiv.appendChild(newImg);
