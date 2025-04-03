@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="public/css/styles.css">
     <link rel="stylesheet" href="public/css/title.css">
     <script src="public/js/chat.js" defer></script>
+    <script src="js/welcomePopup.js" defer></script>
 </head>
 <body id="chatBody">
 
@@ -31,6 +32,13 @@
             });
         })
     </script>
+
+    <div class="popup-overlay" id="popup">
+        <div class="popup">
+            <p>This is a popup message.</p>
+            <button onclick="closePopup()">Continue</button>
+        </div>
+    </div>
 
 </body>
 </html>
