@@ -1,0 +1,72 @@
+/*25%*/
+@media (max-width: 5130px){
+    .message-text{
+        max-width: 96%;
+    }
+}
+/*33%*/
+@media (max-width: 3850px){
+    .message-text{
+        max-width: 96%;
+    }
+}
+/*50%*/
+@media (max-width: 2570px){
+    .message-text{
+        max-width: 94%;
+    }
+}
+/*67%*/
+@media (max-width: 1930px){
+    .message-text{
+        max-width: 94%;
+    }
+}
+/*75%*/
+@media (max-width: 1710px){
+    .message-text{
+        max-width: 92%;
+    }
+}
+/*80%*/
+@media (max-width: 1610px){
+    .message-text{
+        max-width: 92%;
+    }
+}
+/*90%*/
+@media (max-width: 1430px){
+    .message-text{
+        max-width: 92%;
+    }
+}
+/*100%*/
+@media (max-width: 1290px){
+    .message-text{
+        max-width: 90%;
+    }
+}
+/*110%*/
+@media (max-width: 1180px){
+
+}
+/*125%*/
+@media (max-width: 1070px){
+
+}
+/*150%*/
+@media (max-width: 960px){
+
+}
+/*175%*/
+@media (max-width: 850px){
+
+}
+/*200%*/
+@media (max-width: 730px){
+
+}
+/*250%*/
+@media (max-width: 60px){
+
+}
