@@ -1,45 +1,33 @@
-.global-title-container{
-    font-family: 'Cambria', 'Times New Roman', 'Arial';
-    display: inline-block;
-    width: fit-content;
-    text-align: left;
-    color: white;
-    margin-left: 0px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: large;
-    cursor: default;
-    background-color: hsl(204, 26%, 19%);
-    user-select: none;
-}
-.global-title-container:hover{
-    background-color: hsl(204, 26%, 29%);
-}
-.global-title-container:active{
-    background-color: hsl(204, 26%, 39%);
+.title-wrapper {
+    display: flex;
+    justify-content: space-between; /* Space between Global and Local titles */
+    align-items: center;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
 }
 
-.local-title-container{
+.global-title-container,
+.local-title-container {
     font-family: 'Cambria', 'Times New Roman', 'Arial';
-    display: inline-block;
-    width: fit-content;
-    text-align: left;
+    text-align: center;
     color: white;
-    margin-left: 0px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 15px 10px;
     font-size: large;
     cursor: default;
     background-color: hsl(204, 26%, 19%);
     user-select: none;
+    height: 5vh;
+    flex: 1;
+    transition: background-color 0.2s ease;
 }
-.local-title-container:hover{
+
+.global-title-container:hover,
+.local-title-container:hover {
     background-color: hsl(204, 26%, 29%);
 }
-.local-title-container:active{
+
+.global-title-container:active,
+.local-title-container:active {
     background-color: hsl(204, 26%, 39%);
 }

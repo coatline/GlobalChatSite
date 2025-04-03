@@ -1,38 +1,41 @@
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     display: none;
 }
 
-#messageContainerBody{
+#messageContainerBody {
+    margin: 0 auto;
     overflow-y: auto;
+    height: 100%;
 }
 
-.message{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-left: 0px;
-    user-select: none;
+.message {
+    padding: 10px;
     margin: auto;
+    user-select: none;
+    transition: background-color 0.2s ease;
 }
-.message:hover{
+
+.message:hover {
     background-color: hsl(220, 23%, 23%);
 }
 
-.profileImg{
-    border-radius: 30px;
+.profileImg {
+    border-radius: 50%; /* Circular profile image */
     width: 50px;
     height: 50px;
     border: 2px solid hsl(146, 64%, 43%);
     user-select: none;
 }
-.message-text{
+
+.message-text {
     font-family: 'Cambria', 'Times New Roman', 'Arial';
     display: inline-block;
-    color: rgb(25,30,40);
+    color: rgb(25, 30, 40);
     background-color: hsl(146, 64%, 43%);
     vertical-align: top;
     padding: 5px;
     border-radius: 5px;
-    margin: 0px;
+    margin: 0;
     cursor: default;
     user-select: text;
 }

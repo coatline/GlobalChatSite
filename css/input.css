@@ -1,57 +1,73 @@
-#messageInput{
+.input-wrapper {
     font-family: 'Cambria', 'Times New Roman', 'Arial';
-    font-size: large;
-    background-color: rgb(35,50,60);
-    color: white;
-    border: none;
-    padding-top: 0px;
-    padding-bottom: 15px;
-    padding-left: 4px;
-    padding-right: 0px;
-    width: 90.6%;
-    opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10vh;
+    margin-top: 1%;
 }
-#messageInput:focus{
+
+#messageInput {
+    font-size: large;
+    background-color: rgb(35, 50, 60);
+    color: white;
+    border: 2px solid hsl(204, 26%, 29%);
+    border-radius: 5px;
+    padding: 15px 5px;
+    width: 80%;
+    opacity: 0.8;
+    margin-top: 2vh;
+    transition: border-color 0.2s ease, opacity 0.2s ease;
+}
+
+#messageInput:hover {
+    border-color: hsl(204, 26%, 39%);
+}
+
+#messageInput:focus {
     outline: none;
     opacity: 1;
+    border-color: hsl(204, 26%, 39%);
 }
-#messageInput::placeholder{
+
+#messageInput::placeholder {
     color: white;
     opacity: 0.5;
-    user-select: none;;
+    user-select: none;
 }
-#messageInput:focus::placeholder{
-    opacity: 0.7;
-}
-#messageInput:hover::placeholder{
-    transition-property: opacity, display;
-    transition-delay: 0.05s;
-    transition-behavior: allow-discrete;
+
+#messageInput:focus::placeholder,
+#messageInput:hover::placeholder {
     opacity: 0.7;
 }
 
-#sendButton{
-    font-family: 'Cambria', 'Times New Roman', 'Arial';
+#sendButton {
     font-weight: bold;
     background-color: hsl(204, 26%, 19%);
     color: white;
     width: 9%;
     border: none;
-    padding-top: 14px;
-    padding-bottom: 15px;
+    padding: 14px 0;
     opacity: 0.8;
-    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-size: large;
+    text-align: center;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
 }
-#sendButton:focus{
+
+#sendButton:focus {
     outline: none;
 }
-#sendButton:hover{
+
+#sendButton:hover {
     opacity: 1;
-    transition-property: background-color, display;
-    transition-delay: 0.05s;
-    transition-behavior: allow-discrete;
     background-color: hsl(204, 26%, 29%);
 }
-#sendButton:active{
+
+#sendButton:active {
     background-color: hsl(204, 26%, 39%);
 }

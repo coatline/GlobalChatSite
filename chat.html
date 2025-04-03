@@ -11,12 +11,17 @@
 </head>
 <body id="chatBody">
 
-    <div class="global-title-container">Global Chat</div><div class="local-title-container">Local Chats</div>
+    <div class="title-wrapper">
+        <div class="global-title-container">Global Chat</div>
+        <div class="local-title-container">Local Chats</div>
+    </div>
 
     <iframe id="iframeMessages" src="messageContainer.html" frameborder="0"></iframe>
 
-    <input id="messageInput" autocomplete="off" type="text" placeholder="Type message..."><input id="sendButton" type="button" value="Send" onclick="sendMessage()">
-
+    <div class="input-wrapper">
+        <input id="messageInput" autocomplete="off" type="text" placeholder="Type message..."><input id="sendButton" type="button" value="Send" onclick="sendMessage()">
+    </div>
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const messageInput = document.getElementById('messageInput');
