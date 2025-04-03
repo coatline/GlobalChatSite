@@ -39,9 +39,6 @@ function sendMessage() {
 
         // Clear the input field
         messageInput.value = '';
-
-        // Refresh the page
-        window.location.reload();
     } else {
         console.error('Please enter a message');
     }

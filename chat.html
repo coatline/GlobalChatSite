@@ -7,9 +7,12 @@
     <link rel="stylesheet" href="css/input.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/title.css">
+    <link rel="stylesheet" href="css/popup.css">
     <script src="js/chat.js" defer></script>
+    <script src="js/welcomePopup.js" defer></script>
 </head>
 <body id="chatBody">
+    
 
     <div class="global-title-container">Global Chat</div><div class="local-title-container">Local Chats</div>
 
@@ -26,6 +29,13 @@
             });
         })
     </script>
+
+    <div class="popup-overlay" id="popup">
+        <div class="popup">
+            <p>This is a popup message.</p>
+            <button onclick="closePopup()">Continue</button>
+        </div>
+    </div>
 
 </body>
 </html>
