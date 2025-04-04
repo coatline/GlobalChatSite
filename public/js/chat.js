@@ -4,6 +4,7 @@ const sendButton = document.getElementById('sendButton');
 const titleContainer = document.getElementsByClassName('title-container');
 const iframeMessages = document.getElementById('iframeMessages');
 
+// Event listener for the send button
 document.addEventListener('keypress', event => {
     const messageInput = document.getElementById('messageInput');
     if (event.key === 'Enter') {
