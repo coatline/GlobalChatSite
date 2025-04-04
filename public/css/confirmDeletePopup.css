@@ -28,6 +28,7 @@
     font-size: 16px;
     color: white;
     text-align: center;
+    user-select: none;
 }
 
 #deleteButton,
@@ -43,6 +44,7 @@
     cursor: default;
     background-color: hsl(0, 100%, 55%);
     color: white;
+    user-select: none;
 }
 
 #deleteButton:hover,

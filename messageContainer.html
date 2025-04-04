@@ -4,22 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Chat Site</title>
-    <link rel="stylesheet" href="public/css/confirmDeletePopup.css">
     <link rel="stylesheet" href="public/css/messages.css">
 </head>
 <body id="messageContainerBody">
-
-    <div id="popup-background-fade" style="display: none;"></div>
-    <div id="popup-container" style="display: none;">
-        <p id="confirmMessage">Are you sure you want to delete this message?</p>
-        <button id="deleteButton">Delete</button>
-        <button id="cancelButton">Cancel</button>
-    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const messages = JSON.parse(localStorage.getItem('messages')) || [];
             const messageContainerBody = document.getElementById('messageContainerBody');
+            const parentDocument = window.parent.document; // Access the parent document
 
             messages.forEach((messageText, index) => {
                 const newDiv = createMessageElement(messageText);
@@ -28,6 +21,7 @@
                 newDiv.addEventListener('contextmenu', event => {
                     event.preventDefault(); // Prevent the default context menu
                     showDeleteMessagePopup(index, newDiv);
+                    parentDocument.getElementById('messageInput').disabled = true; // Disable the input field
                 });
 
                 messageContainerBody.appendChild(newDiv);
@@ -64,10 +58,11 @@
 
         // Function to show the delete popup
         function showDeleteMessagePopup(index, messageElement) {
-            const popupBackgroundFade = document.getElementById('popup-background-fade');
-            const popupContainer = document.getElementById('popup-container');
-            const deleteButton = document.getElementById('deleteButton');
-            const cancelButton = document.getElementById('cancelButton');
+            const parentDocument = window.parent.document; // Access the parent document
+            const popupBackgroundFade = parentDocument.getElementById('popup-background-fade');
+            const popupContainer = parentDocument.getElementById('popup-container');
+            const deleteButton = parentDocument.getElementById('deleteButton');
+            const cancelButton = parentDocument.getElementById('cancelButton');
 
             // Show the popup
             popupBackgroundFade.style.display = 'block';
@@ -93,11 +88,15 @@
 
         // Function to close the delete popup
         function closeDeleteMessagePopup() {
-            const popupBackgroundFade = document.getElementById('popup-background-fade');
-            const popupContainer = document.getElementById('popup-container');
+            const parentDocument = window.parent.document; // Access the parent document
+            const popupBackgroundFade = parentDocument.getElementById('popup-background-fade');
+            const popupContainer = parentDocument.getElementById('popup-container');
 
             popupBackgroundFade.style.display = 'none';
             popupContainer.style.display = 'none';
+
+            parentDocument.getElementById('messageInput').disabled = false; // Enable the input field
+            parentDocument.getElementById('messageInput').focus(); // Focus back on the input field
         }
     </script>
     
