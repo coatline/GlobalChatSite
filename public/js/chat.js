@@ -3,6 +3,8 @@ const messageContainerBody = document.getElementById('messageContainerBody');
 const sendButton = document.getElementById('sendButton');
 const titleContainer = document.getElementsByClassName('title-container');
 const iframeMessages = document.getElementById('iframeMessages');
+const pb = new PocketBase("http://127.0.0.1:5500")
+
 
 // Event listener for the send button
 document.addEventListener('keypress', event => {
@@ -59,7 +61,7 @@ function createMessageElement(messageText) {
 
     const newImg = document.createElement('img');
     newImg.classList.add('profileImg');
-    newImg.src = 'public/images/chatDisplayRef.jpg';
+    newImg.src = "../images/chatDisplayRef.jpg";
     newImg.draggable = false;
     newImg.alt = 'profile';
     newDiv.appendChild(newImg);
