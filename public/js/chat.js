@@ -46,7 +46,7 @@ function sendMessage() {
         messageInput.value = '';
 
         // Refresh the page
-        window.location.reload();
+        // window.location.reload();
     } else {
         console.error('Please enter a message');
     }
