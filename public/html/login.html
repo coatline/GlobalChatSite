@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Chat Site</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="../js/login.js" defer></script>
+</head>
+<body>
+    <img id="oceanIMG" src="../images/Ocean.png" alt="Ocean">
+
+    <div class="side-bar">
+
+        <h2 class="login-options" id="signInButton">Sign In</h2><h2 class="login-options" id="signUpButton">Sign Up</h2>
+
+        <form id="signInForm">
+
+            <label for="emailInput">Your email</label><br>
+            <input type="email" placeholder="Enter your email" id="emailInput"><br>
+
+            <label for="passwordInput">Your password</label><br>
+            <input type="password" placeholder="Enter your password" id="passwordInput"><br>
+
+            <input type="checkbox" id="keepMeLoggedInCheckbox"><label for="keepMeLoggedIn" id="keepMeLoggedIn">Keep me logged in</label><a href="#" id="forgotPassword">Forgot password?</a><br>
+
+            <input type="submit" value="SIGN IN" id="signInSubmitButton">
+            <p id="or">or</p>
+            <input type="button" value="SIGN IN WITH GOOGLE" id="signInWithGoogleButton">
+            
+        </form>
+
+        <form id="signUpForm" style="display: none;">
+            <!-- Sign-up form content can go here -->
+        </form>
+
+        <p id="moreInfo">
+            <a href="#" id="moreInfoLinks">Privacy</a>
+            •
+            <a href="#" id="moreInfoLinks">Terms</a>
+            •
+            <a href="#" id="moreInfoLinks">About</a>
+        </p>
+
+    </div>
+
+    <img id="ref" src="../images/loginRef.webp" alt="ref" title="This image is here for reference only">
+</body>
+</html>
