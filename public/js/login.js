@@ -1,6 +1,7 @@
 import PocketBase from 'https://cdn.jsdelivr.net/npm/pocketbase@0.18.3/+esm'
 
 const signInForm = document.getElementById('signInForm');
+const signUpForm = document.getElementById('signUpForm');
 const signInSubmitButton = document.getElementById('signInSubmitButton');
 const signInButton = document.getElementById('signInButton');
 const signUpButton = document.getElementById('signUpButton');
@@ -25,7 +26,11 @@ function selected1() {
     signUpButton.style.textDecoration = 'none';
     signUpButton.style.fontWeight = 'normal';
     signUpButton.style.textShadow = 'none';
+
+    signInForm.style.display = 'block'; // Show signInForm by default
+    signUpForm.style.display = 'none'; // Hide signUpForm by default
 }
+
 function selected2() {
     signUpButton.style.textDecoration = 'underline white';
     signUpButton.style.fontWeight = 'bold';
@@ -34,6 +39,9 @@ function selected2() {
     signInButton.style.textDecoration = 'none';
     signInButton.style.fontWeight = 'normal';
     signInButton.style.textShadow = 'none';
+
+    signInForm.style.display = 'none'; // Hide signInForm by default
+    signUpForm.style.display = 'block'; // Show signUpForm by default
 }
 
 signInSubmitButton.addEventListener('click', trySignIn);
