@@ -10,30 +10,26 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 signInButton.addEventListener('click', function () {
-    selected1(); // Call selected1 function on signInButton click
+    selectButton(signInButton);
+    deselectButton(signUpButton);
 });
 
 signUpButton.addEventListener('click', function () {
-    selected2(); // Call selected2 function on signUpButton click
+    selectButton(signUpButton);
+    deselectButton(signInButton);
 });
 
-function selected1() {
-    signInButton.style.textDecoration = 'underline white';
-    signInButton.style.fontWeight = 'bold';
-    signInButton.style.textShadow = '2px 2px 10px black';
-
-    signUpButton.style.textDecoration = 'none';
-    signUpButton.style.fontWeight = 'normal';
-    signUpButton.style.textShadow = 'none';
+function selectButton(button)
+{
+    button.style.textDecoration = 'underline white';
+    button.style.fontWeight = 'bold';
+    button.style.textShadow = '2px 2px 10px black';
 }
-function selected2() {
-    signUpButton.style.textDecoration = 'underline white';
-    signUpButton.style.fontWeight = 'bold';
-    signUpButton.style.textShadow = '2px 2px 10px black';
 
-    signInButton.style.textDecoration = 'none';
-    signInButton.style.fontWeight = 'normal';
-    signInButton.style.textShadow = 'none';
+function deselectButton(button){
+    button.style.textDecoration = 'none';
+    button.style.fontWeight = 'normal';
+    button.style.textShadow = 'none';
 }
 
 signInSubmitButton.addEventListener('click', trySignIn);
@@ -81,20 +77,4 @@ function isValidEmail(email = String){
 
 function isValidPassword(password = String){
     return password.length > 0;
-}
-
-function isvalidInputs() {
-
-    if (!emailInput || !passwordInput) {
-        return false;
-    }
-
-    
-
-
-    window.location.href = '../html/chat.html';
-}
-
-async function signIn()
-{
 }
