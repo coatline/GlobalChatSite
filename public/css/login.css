@@ -40,9 +40,9 @@ body{
     font-weight: lighter;
     cursor: pointer;
 }
-.login-options:hover{
+#signInButton:hover, #signUpButton:hover{
     color: rgb(0, 255, 255);
-    text-shadow: 2px 2px 5px black;
+    text-shadow: 0px 0px 10px black;
     transition: 0.3s;
 }
 
