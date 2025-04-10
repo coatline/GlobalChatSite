@@ -7,13 +7,14 @@ const signInButton = document.getElementById('signInButton');
 const signUpButton = document.getElementById('signUpButton');
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Select the sign in button on page load
-    selectButton(signInButton);
+    selectButton(signInButton); // Select the sign in button on page load
+    deselectButton(signUpButton);
 });
 
 signInButton.addEventListener('click', function () {
     selectButton(signInButton);
     deselectButton(signUpButton);
+
     signInForm.style.display = 'block';
     signUpForm.style.display = 'none';
 });
@@ -21,12 +22,12 @@ signInButton.addEventListener('click', function () {
 signUpButton.addEventListener('click', function () {
     selectButton(signUpButton);
     deselectButton(signInButton);
+    
     signUpForm.style.display = 'block';
     signInForm.style.display = 'none';
 });
 
-function selectButton(button)
-{
+function selectButton(button){
     button.style.textDecoration = 'underline white';
     button.style.fontWeight = 'bold';
     button.style.textShadow = '2px 2px 10px black';
