@@ -7,7 +7,8 @@ const signInButton = document.getElementById('signInButton');
 const signUpButton = document.getElementById('signUpButton');
 
 document.addEventListener('DOMContentLoaded', function () {
-    selected1(); // Call selected1 function on page load
+    // Select the sign in button on page load
+    selectButton(signInButton);
 });
 
 signInButton.addEventListener('click', function () {
