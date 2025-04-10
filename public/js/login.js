@@ -9,6 +9,9 @@ const signUpButton = document.getElementById('signUpButton');
 document.addEventListener('DOMContentLoaded', function () {
     selectButton(signInButton); // Select the sign in button on page load
     deselectButton(signUpButton);
+
+    signInForm.style.display = 'block';
+    signUpForm.style.display = 'none';
 });
 
 signInButton.addEventListener('click', function () {
