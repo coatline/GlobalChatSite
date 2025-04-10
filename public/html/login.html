@@ -30,8 +30,23 @@
             
         </form>
 
-        <form id="signUpForm" style="display: none;">
-            <!-- Sign-up form content can go here -->
+        <form id="signUpForm">
+
+            <label for="emailInput">Your email</label><br>
+            <input type="email" placeholder="Enter your email" id="emailInput"><br>
+
+            <label for="passwordInput">Your password</label><br>
+            <input type="password" placeholder="Enter your password" id="passwordInput"><br>
+
+            <label for="confirmPasswordInput">Confirm your password</label><br>
+            <input type="password" placeholder="Confirm your password" id="confirmPasswordInput"><br>
+
+            <input type="checkbox" id="keepMeLoggedInCheckbox"><label for="keepMeLoggedIn" id="keepMeLoggedIn">Keep me logged in</label><br>
+
+            <input type="submit" value="SIGN UP" id="signUpSubmitButton">
+            <p id="or">or</p>
+            <input type="button" value="SIGN UP WITH GOOGLE" id="signUpWithGoogleButton">
+            
         </form>
 
         <p id="moreInfo">
