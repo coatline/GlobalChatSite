@@ -71,6 +71,8 @@ async function trySignIn(event)
 
     console.log(`Signing in... ${data.email} ${data.password}`);
 
+    document.location.href = '../html/chat.html';
+
     try {
       const user = await pb.collection('users').create(data);
       console.log('Account created:', user);
@@ -82,7 +84,7 @@ async function trySignIn(event)
 
 function isValidEmail(email = String){
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return (emailRegex.test(emailInput) == false) && (email.length > 0);
+    return (emailRegex.test(email)) && (email.length > 0);
 }
 
 function isValidPassword(password = String){
