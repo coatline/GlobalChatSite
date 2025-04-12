@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     signInForm.style.display = 'block';
     signUpForm.style.display = 'none';
+
+    clearInputFields(); // Clear input fields on page load
 });
 
 signInButton.addEventListener('click', function () {
@@ -20,6 +22,8 @@ signInButton.addEventListener('click', function () {
 
     signInForm.style.display = 'block';
     signUpForm.style.display = 'none';
+    
+    clearInputFields(); // Clear input fields when switching to sign in form
 });
 
 signUpButton.addEventListener('click', function () {
@@ -28,6 +32,8 @@ signUpButton.addEventListener('click', function () {
     
     signUpForm.style.display = 'block';
     signInForm.style.display = 'none';
+
+    clearInputFields(); // Clear input fields when switching to sign up form
 });
 
 function selectButton(button){
@@ -42,6 +48,18 @@ function deselectButton(button){
     button.style.textShadow = 'none';
 }
 
+function clearInputFields() {
+    // Clear input fields
+    document.getElementById('emailInput').value = '';
+    document.getElementById('passwordInput').value = '';
+    document.getElementById('emailInput2').value = '';
+    document.getElementById('passwordInput2').value = '';
+    document.getElementById('confirmPasswordInput2').value = '';
+    document.getElementById('keepMeLoggedInCheckbox').checked = false;
+    document.getElementById('keepMeLoggedInCheckbox2').checked = false;
+    document.getElementById('errorMessage').style.visibility = 'hidden';
+}
+
 signInSubmitButton.addEventListener('click', trySignIn);
 
 async function trySignIn(event)
@@ -53,15 +71,27 @@ async function trySignIn(event)
     const emailInput = document.getElementById('emailInput').value.trim();
     const passwordInput = document.getElementById('passwordInput').value.trim();
 
-    if(isValidEmail(emailInput) == false)
-    {
-        // TODO: Display invalid email address
+    if(isValidEmail(emailInput) == false && isValidPassword(passwordInput) == false) {
+        // Display invalid email address and password
+        showErrorMessage('Invalid email address and password.');
+        document.getElementById('emailInput').value = '';
+        document.getElementById('passwordInput').value = '';
         return;
-    }
-    else if(isValidPassword(passwordInput) == false)
-    {
-        // TODO: Display invalid password
+    } else if(isValidEmail(emailInput) == false) {
+        // Display invalid email address
+        showErrorMessage('Invalid email address.');
+        document.getElementById('emailInput').value = '';
+        document.getElementById('passwordInput').value = '';
         return;
+    } else if(isValidPassword(passwordInput) == false) {
+        // Display invalid password
+        showErrorMessage('Invalid password.');
+        document.getElementById('emailInput').value = '';
+        document.getElementById('passwordInput').value = '';
+        return;
+    } else {
+        // Hide error message if inputs are valid
+        document.getElementById('errorMessage').style.visibility = 'hidden';
     }
 
     const data = {
@@ -89,4 +119,10 @@ function isValidEmail(email = String){
 
 function isValidPassword(password = String){
     return password.length > 0;
+}
+
+function showErrorMessage(message = String) {
+    const errorMessage = document.getElementById('errorMessage');
+    errorMessage.textContent = message;
+    errorMessage.style.visibility = 'visible';
 }
