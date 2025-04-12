@@ -219,11 +219,3 @@ input[type="email"]:focus::placeholder, input[type="password"]:focus::placeholde
     text-shadow: 2px 2px 5px black;
     transition: 0.3s;
 }
-
-/* Reference */
-#ref{
-    position: absolute;
-    top: 100%;
-    width: 100%;
-    height: 100%;
-}
