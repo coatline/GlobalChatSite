@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
     signUpForm.style.display = 'none';
 
     clearInputFields(); // Clear input fields on page load
+
+    document.getElementById('errorMessage').style.visibility = 'hidden';
 });
 
 signInButton.addEventListener('click', function () {
@@ -25,6 +27,8 @@ signInButton.addEventListener('click', function () {
     signUpForm.style.display = 'none';
     
     clearInputFields(); // Clear input fields when switching to sign in form
+
+    document.getElementById('errorMessage').style.visibility = 'hidden';
 });
 
 signUpButton.addEventListener('click', function () {
@@ -35,12 +39,13 @@ signUpButton.addEventListener('click', function () {
     signInForm.style.display = 'none';
 
     clearInputFields(); // Clear input fields when switching to sign up form
+
+    document.getElementById('errorMessage').style.visibility = 'hidden';
 });
 
 signInSubmitButton.addEventListener('click', trySignIn);
 
-async function trySignIn(event)
-{
+async function trySignIn(event) {
     event.preventDefault();
 
     const pb = new PocketBase('http://localhost:8090'); 
@@ -50,26 +55,23 @@ async function trySignIn(event)
 
     if(isValidEmail(emailInput) == false && isValidPassword(passwordInput) == false) {
         // Display invalid email address and password
-        showErrorMessage('Invalid email address and password.');
-        document.getElementById('emailInput').value = '';
-        document.getElementById('passwordInput').value = '';
+        showErrorMessage('INVAILD EMAIL ADDRESS AND PASSWORD');
+        clearInputFields();
         return;
     } else if(isValidEmail(emailInput) == false) {
         // Display invalid email address
-        showErrorMessage('Invalid email address.');
-        document.getElementById('emailInput').value = '';
-        document.getElementById('passwordInput').value = '';
+        showErrorMessage('INVALID EMAIL ADDRESS');
+        clearInputFields();
         return;
     } else if(isValidPassword(passwordInput) == false) {
         // Display invalid password
-        showErrorMessage('Invalid password.');
-        document.getElementById('emailInput').value = '';
-        document.getElementById('passwordInput').value = '';
+        showErrorMessage('INVALID PASSWORD');
+        clearInputFields();
         return;
     } else {
         // Hide error message if inputs are valid
         document.getElementById('errorMessage').style.visibility = 'hidden';
-        clearInputFields(); // Clear input fields after successful login
+        showErrorMessage('Logging in...', 'green');
     }
 
     const data = {
@@ -86,33 +88,38 @@ async function trySignIn(event)
       console.error('Signup error:', err);
     }
 
-    document.location.href = '../html/chat.html';
+    clearInputFields(); // Clear input fields after successful login
+    document.getElementById('errorMessage').style.visibility = 'hidden';
+    document.getElementById('errorMessage').style.color = 'red';
+    document.location.href = '../html/createProfile.html';
 }
 
 
 //Functions
 
-function isValidEmail(email = String){
+function isValidEmail(email = String) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return (emailRegex.test(email)) && (email.length > 0);
 }
 
-function isValidPassword(password = String){
+function isValidPassword(password = String) {
     return password.length > 0;
 }
 
-function showErrorMessage(message = String) {
+function showErrorMessage(message = String, color = 'red') {
     const errorMessage = document.getElementById('errorMessage');
     errorMessage.textContent = message;
+    errorMessage.style.color = color;
     errorMessage.style.visibility = 'visible';
 }
-function selectButton(button){
+
+function selectButton(button) {
     button.style.textDecoration = 'underline white';
     button.style.fontWeight = 'bold';
     button.style.textShadow = '2px 2px 10px black';
 }
 
-function deselectButton(button){
+function deselectButton(button) {
     button.style.textDecoration = 'none';
     button.style.fontWeight = 'normal';
     button.style.textShadow = 'none';
@@ -126,5 +133,4 @@ function clearInputFields() {
     document.getElementById('confirmPasswordInput2').value = '';
     document.getElementById('keepMeLoggedInCheckbox').checked = false;
     document.getElementById('keepMeLoggedInCheckbox2').checked = false;
-    document.getElementById('errorMessage').style.visibility = 'hidden';
 }

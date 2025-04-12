@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Chat Site</title>
+    <link rel="stylesheet" href="../css/createProfile.css">
+    <script type="module" src="../js/createProfile.js" defer></script>
+</head>
+<body>
+
+    <form id="createProfileForm">
+
+        <h1 id="createProfileHeader">Create Profile</h1>
+
+        <p id="profileCreationErrorMessage">ERROR</p>
+
+        <label for="usernameInput">Username:</label><br>
+        <input type="text" id="usernameInput"><br>
+
+        <label for="profileImageInput">Profile Image (Must be png, jpeg, or gif):</label><br>
+        <input type="file" id="profileImageInput" accept="image/png, image/jpeg, image/gif"><br>
+
+        <p id="createProfileNotice">*All users can see your username and profile image</p>
+
+        <input type="button" value="Create Profile" id="createProfileButton"><br>
+
+    </form>
+
+</body>
+</html>
