@@ -5,7 +5,6 @@ const titleContainer = document.getElementsByClassName('title-container');
 const iframeMessages = document.getElementById('iframeMessages');
 const pb = new PocketBase("http://127.0.0.1:5500")
 
-
 // Event listener for the send button
 document.addEventListener('keypress', event => {
     const messageInput = document.getElementById('messageInput');
