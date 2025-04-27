@@ -57,6 +57,7 @@ body{
     margin-bottom: 4%;
     cursor: default;
     visibility: hidden;
+    font-style: italic;
 }
 
 /* Login Form */
