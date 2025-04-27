@@ -132,7 +132,7 @@ input[type="email"]:focus::placeholder, input[type="password"]:focus::placeholde
     display: inline-block;
     width: 50%;
     right: 0px;
-
+    outline: none;
 }
 #signInSubmitButton, #signInWithGoogleButton{
     width: 100%;
@@ -214,6 +214,7 @@ input[type="email"]:focus::placeholder, input[type="password"]:focus::placeholde
 #moreInfoLinks{
     text-decoration: none;
     color: white;
+    outline: none;
 }
 #moreInfoLinks:hover{
     color: rgb(0, 255, 255);
